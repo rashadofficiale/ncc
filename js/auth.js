@@ -89,6 +89,23 @@ document.getElementById("authForm")
   }
 
 });
+    // Google Sign In
+const googleBtn = document.getElementById("googleBtn");
+
+if (googleBtn) {
+  googleBtn.addEventListener("click", function () {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then(() => {
+        window.location.href = "dashboard.html";
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  });
+}
 
   }
 
